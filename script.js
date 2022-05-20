@@ -4,17 +4,61 @@ const data = '[{"name":"Jeff Bezos","networth":"177.0","country":"United States"
 
 const database = JSON.parse(data); 
 console.log(database);
-const first = database[1].name
+const array = database.array
+const element = document.querySelector(".list")
 
+// for (let key in database) {
+//     console.log(database[key]);
+// }
 
-
-console.log(first.indexOf("El"))
-
-for (let key in database) {
-    console.log(database[key].age + " " + database[key].name);
+//print the list ---- converts to function
+for (let value of database) {
+    element.innerHTML += 
+    `<div style=display:flex;align-items:center>
+    <h3>rich guy:</h3>
+    <p>${value.name},
+    <strong>age:</strong> ${value.age},
+    <strong>kids:</strong> ${value.children},
+    <strong>country:</strong> ${value.country},
+    <strong>networth:</strong> ${value.networth},
+    <strong>selfmade:</strong> ${value.self_made}, 
+    <strong>source:</strong> ${value.source},
+    <strong>status:</strong> ${value.status}
+    </p>
+    </div>`
+    
 }
 
+const findNames = database[0].name
+console.log(database.lenght)
+//indexOf method--------------
 // const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
 
 // const searchTerm = 'dog';
 // const indexOfFirst = paragraph.indexOf(searchTerm);
+//----------------------------------------------
+const input = document.querySelector(".input");
+
+//for search use filter
+
+const filterRich = () => {
+
+    database.filter(("Jeff"))
+}
+
+
+   
+const findName = (e) => {
+            let typedName = input.value //argument for function
+            //run the search with typed argument
+            //run print 
+            console.log(`ok + ${e.code}`);
+        
+    
+}
+
+input.addEventListener("keyup", findName)
+
+
+
+
